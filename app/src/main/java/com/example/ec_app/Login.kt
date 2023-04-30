@@ -40,13 +40,11 @@ class Login : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.LoginPassword).text.toString()
         val user = Firebase.auth.currentUser
 
-
         if(email.isEmpty() || password.isEmpty()){
             Toast.makeText(this, "Please fill all fiels", Toast.LENGTH_SHORT)
                 .show()
             return
         }
-
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
